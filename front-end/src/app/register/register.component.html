@@ -1,0 +1,54 @@
+<div class="dlg" id="dlg">
+  <div class="dlg-content">
+     <div class="card card-border-color card-border-color-primary">
+        <div class="">
+           <span class="card-description">Registration Form</span>
+        </div>
+        <div class="card-body">
+           <form [formGroup]="registrationForm">
+              <div class="login-form">
+                 <div class="form-group">
+                    <input class="form-control" formControlName="fullName" type="text" placeholder="Full Name">
+                    <div *ngIf="registrationForm.controls.fullName.invalid && (registrationForm.controls.fullName.dirty || registrationForm.controls.fullName.touched)">
+                      <div class="text-white"  *ngIf="registrationForm.controls.fullName.hasError('required')">
+                      Full Name Required
+                      </div>
+                  </div>
+                  </div>
+                <div class="form-group">
+                  <input class="form-control" type="text" formControlName="email" placeholder="Email">
+                  <div *ngIf="registrationForm.controls.email.invalid && (registrationForm.controls.email.dirty || registrationForm.controls.email.touched)">
+                    <div class="text-white"  *ngIf="registrationForm.controls.email.hasError('required')">
+                    Email Required
+                    </div>
+                    <div class="text-white"  *ngIf="registrationForm.controls.email.hasError('email')">
+                      Invaid Email 
+                    </div>
+                  </div>  
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" formControlName="mobileNumber" placeholder="Mobile number">
+                    <div *ngIf="registrationForm.controls.mobileNumber.invalid && (registrationForm.controls.mobileNumber.dirty || registrationForm.controls.mobileNumber.touched)">
+                      <div class="text-white"  *ngIf="registrationForm.controls.mobileNumber.hasError('required')">
+                      Mobile Number Required
+                      </div>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <input class="form-control" type="password"  formControlName="password" placeholder="Password">
+                    <div *ngIf="registrationForm.controls.password.invalid && (registrationForm.controls.password.dirty || registrationForm.controls.password.touched)">
+                      <div class="text-white"  *ngIf="registrationForm.controls.password.hasError('required')">
+                      Password Required
+                      </div>
+                    </div>
+                 </div>
+                 <div class="form-group row login-submit">
+                    <div class="col-6"><a class="btn btn-secondary btn-xl" href="JavaScript:void(0);" routerLink="/login">Sign In</a></div>
+                    <div class="col-6"><a class="btn btn-primary btn-xl" href="JavaScript:void(0);" (click)="registerUser()" >Register</a></div>
+                 </div>
+              </div>
+           </form>
+        </div>
+     </div>
+  </div>
+</div>

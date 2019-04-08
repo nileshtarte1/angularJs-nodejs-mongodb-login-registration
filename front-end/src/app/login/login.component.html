@@ -1,0 +1,35 @@
+<div class="dlg" id="dlg">
+  <div class="dlg-content">
+     <div class="card card-border-color card-border-color-primary">
+        <div class="">
+           <span class="card-description">Welcome back! Log in to your account:</span>
+        </div>
+        <div class="card-body">
+           <form [formGroup]="loginForm">
+              <div class="login-form">
+                 <div class="form-group">
+                    <input class="form-control" formControlName="email" type="text" placeholder="Username">
+                    <div *ngIf="loginForm.controls.email.invalid && (loginForm.controls.email.dirty || loginForm.controls.email.touched)">
+                        <div class="text-white"  *ngIf="loginForm.controls.email.hasError('required')">
+                        Username Required
+                        </div>
+                    </div>
+                  </div>
+                 <div class="form-group">
+                    <input class="form-control" formControlName="password" type="password" placeholder="Password">
+                    <div *ngIf="loginForm.controls.password.invalid && (loginForm.controls.password.dirty || loginForm.controls.password.touched)">
+                      <div class="text-white"  *ngIf="loginForm.controls.password.hasError('required')">
+                      Password Required
+                      </div>
+                    </div>
+                  </div>
+                 <div class="form-group row login-submit">
+                    <div class="col-6"><a class="btn btn-secondary btn-xl" href="JavaScript:void(0);" routerLink="/registration" >Register</a></div>
+                    <div class="col-6"><a class="btn btn-primary btn-xl" href="JavaScript:void(0);" (click)="login()">Sign in</a></div>
+                 </div>
+              </div>
+           </form>
+        </div>
+     </div>
+  </div>
+</div>
